@@ -8,6 +8,31 @@
 git clone <URL>
 ```
 
+## Rename a repository
+### ( 1 ) Go on github.com and rename the repository .
+
+### ( 2 ) Locally, open a terminal and navigate to the directory of the repository and run
+```bash
+mv <old_name> <new_name>
+```
+#### ( 2.1 ) If a permission error occurs, rename manually the folder in the file explorer.
+
+### ( 3 ) Copy the URL of the remote repository and set it to the local one:
+```bash
+git remote set-url origin <new_URL>
+```
+
+### ( 4 ) Verify the new URL:
+```bash
+git remote -v
+```
+It should return
+```bash
+origin  <new_URL> (fetch)
+origin  <new_URL> (push)
+```
+
+
 ## Create a new branch and push it to the remote repository
 By default, you are on the master branch. Do the following to create a new branch and push it to the remote repository:
 ### ( 1 ) Create a new branch and switch to it:
