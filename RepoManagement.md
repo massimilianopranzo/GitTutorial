@@ -39,9 +39,22 @@ By default, you are on the master branch. Do the following to create a new branc
 ```bash
 git checkout -b <branch_name>
 ```
+This will create a new branch aligned with the branch you were on. 
+
+### ( 1.1 ) Create a branch copying the files from another branch:
+```bash
+git checkout --orphan <branch_name>
+```
+In this case, all the files will be copied from the branch you were on appearing as new untracked files. You can remove them with `git clean -f -d` if you want
+
 ### ( 2 ) Push the branch to the remote repository:
 ```bash
 git push origin <branch_name>
+```
+
+### ( 3 ) Set the tracking of the branches:
+```bash
+git branch --set-upstream-to=origin/<branch_name> <branch_name>
 ```
 
 ## Get a remote branch to your local repository
@@ -129,4 +142,10 @@ git branch -m <new_branch_name>
 ### ( 3 ) Push the new branch to the remote repository:
 ```bash
 git push origin <new_branch_name>
+```
+
+## Create a branch starting from another branch
+### ( 1.a ) Create a new branch starting from another branch:
+```bash
+git checkout -b <new_branch_name> <old_branch_name>
 ```

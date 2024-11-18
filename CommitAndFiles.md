@@ -1,3 +1,9 @@
+## Download remote updates without modifying the local repository
+### ( 1 ) Fetch the changes from the remote repository:
+```bash
+git fetch
+```
+
 ## Push local changes to the remote repository
 ### ( 1 ) Add the changes to the staging area:
 ```bash
@@ -22,6 +28,38 @@ git pull
 ### ( 1.1 ) If you want to pull changes from a specific branch:
 ```bash
 git pull origin <branch_name>
+```
+
+Note: If you have uncommitted changes in the working directory, you will get an error. You can either commit the changes or stash them.
+
+## Stash changes (save changes for later use)
+### ( 1 ) Stash the changes:
+```bash
+git stash
+``` 
+Now all the changes have been saved. You can use this to make experiments starting from the latest commit or switch branches without losing the changes.
+
+### ( 2.a ) Reapply the changes <u>losing</u> changes done after the stash:
+```bash
+git stash apply
+```
+
+### ( 2.b ) Reapply the changes keeping changes done after the stash:
+```bash
+git stash pop
+```
+In this case if conflicts arise, the merge editor will open to resolve them.
+
+
+## Make your local repository identical to the remote repository (<u>you will lose ALL your local changes</u>) 
+### ( 1 ) Ensure you are in the branch you want to reset:
+```bash
+git checkout <branch_name>
+```
+### ( 2 ) Reset the branch to the remote repository:
+```bash
+git fetch origin
+git reset --hard origin/<branch_name>
 ```
 
 ## Rename a commit
