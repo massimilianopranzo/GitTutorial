@@ -216,3 +216,26 @@ git push --tags
 ```bash
 git tag
 ```
+
+## Delete a tag
+### ( 1 ) Delete the tag in the local repository:
+```bash
+git tag -d <tag_name>
+```
+
+### ( 2 ) Delete the tag in the remote repository:
+```bash
+git push origin --delete <tag_name>
+```
+
+**Note**: to modify a tag, you still need to delete it first and then create a new one. 
+
+### ( 3 ) Verify the tag in the local repository:
+```bash
+git tag
+```
+
+### ( 4 ) Verify the tag in the remote repository:
+```bash
+git ls-remote --tags origin
+```
